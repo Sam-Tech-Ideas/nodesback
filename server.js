@@ -11,6 +11,7 @@ const getNotesController = require("./src/controllers/getNotesController");
 connectDB();
 const app = express();
 const PORT =  5000;
+app.use(bodyParser.json());
 
 
 

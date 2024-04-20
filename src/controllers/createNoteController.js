@@ -3,18 +3,22 @@ const Note = require("../models/noteModel");
 
 
 const createNote = async (req, res) => {
+  console.log(req.body);
+
+    const note = new Note(
+        {
+            title: req.body.title,
+            content: req.body.content,
+            date: req.body.date
+        }
+    );
+    await note.save();
+    res.json(note);
 
 
-    const newNote = new Note({
-        title: req.body.title,
-        content: req.body.content,
-    });
 
 
-    const createdNote = await newNote.save();
-    res.json(createdNote);
 
 }
 
 module.exports = createNote;
-
